@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Shrashtu</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI', sans-serif;
+}
+
+body{
+overflow:hidden;
+color:white;
+}
+
+/* Background Slideshow */
+.slideshow{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-3;
+background-size:cover;
+background-position:center;
+animation:slide 30s infinite;
+filter:brightness(0.6);
+}
+
+@keyframes slide{
+0%{background-image:url("photo1.jpeg");}
+10%{background-image:url("photo2.jpeg");}
+50%{background-image:url("photo3.jpeg");}
+100%{background-image:url("photo5.jpeg");}
+}
+
+/* Glass Overlay */
+.overlay{
+backdrop-filter: blur(10px);
+background:rgba(0,0,0,0.55);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+overflow:hidden;
+}
+
+/* Premium Card */
+.content{
+max-width:900px;
+width:100%;
+animation:scrollText 95s linear infinite;
+padding:25px;
+border-radius:20px;
+background:rgba(255,255,255,0.08);
+box-shadow:0 0 30px rgba(255,192,203,0.3);
+}
+
+/* Smooth Scrolling Text */
+@keyframes scrollText{
+0%{transform:translateY(100%);}
+100%{transform:translateY(-130%);}
+}
+
+p{
+font-size:18px;
+line-height:1.9;
+margin-bottom:18px;
+}
+
+/* Responsive Text */
+@media(max-width:768px){
+p{
+font-size:15px;
+line-height:1.7;
+}
+}
+
+/* Floating Hearts */
+.heart{
+position:fixed;
+bottom:-20px;
+color:pink;
+animation:floatUp 7s linear infinite;
+opacity:0.8;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(0); opacity:1;}
+100%{transform:translateY(-100vh); opacity:0;}
+}
+
+/* Password Screen */
+.passwordScreen{
+position:fixed;
+width:100%;
+height:100%;
+background:linear-gradient(135deg,#000,#1a1a1a);
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:5;
+text-align:center;
+padding:20px;
+}
+
+.passwordScreen h2{
+margin-bottom:15px;
+}
+
+.passwordScreen input{
+padding:12px;
+font-size:16px;
+border-radius:12px;
+border:none;
+margin:10px;
+width:200px;
+text-align:center;
+}
+
+.passwordScreen button{
+padding:12px 25px;
+font-size:16px;
+border:none;
+border-radius:25px;
+background:linear-gradient(45deg,pink,hotpink);
+color:white;
+cursor:pointer;
+box-shadow:0 0 15px pink;
+transition:0.3s;
+}
+
+.passwordScreen button:hover{
+transform:scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="passwordScreen" id="passwordScreen">
+<h2>Shrashtu Please Enter password</h2>
+<input type="password" id="pass" placeholder="Enter Password">
+<button onclick="checkPassword()">Tap to open surprise</button>
+<p id="error" style="color:red;"></p>
+</div>
+
+<div class="slideshow"></div>
+
+<div class="overlay">
+<div class="content">
+
+<!-- TUMHARI SAARI LINES SAME RAHENGI -->
+<p>You know today is Mahashivratri.</p>
+<p>This day is very special for me because I always pray to my Bhole Baba for only you</p>
+
+<p>I feel very lucky to have you in my life</p>
+<p>You always say that I don’t pamper or praise you, but today I truly want to praise you.</p>
+<p>You are the most beautiful and lovely person in my whole life</p>
+<p>You seem like such a kind and calm person</p>
+<p>May we always stay together</p>
+<p>I love you very, very much shrashtu</p>
+<p>You are different from everyone else</p>
+<p>You are only mine</p>
+<p>Your smile and your eyes are my favorite in the whole world</p>
+<p>I have never seen eyes as beautiful as yours</p>
+<p>Please don’t think this is fake — these are my true emotions Shrashtu</p>
+<p>And please never forget me</p>
+
+<p>shrashtu I promise I will always be with you</p>
+<p>I know I get angry sometimes i will try to stay calm but at that time, it’s your responsibility to calm me down and vice versa</p>
+<p>One day, we will get married like Shiv Ji and Parvati 🕉️</p>
+<p>You are my Parvati, and I am your Shiv </p>
+
+<p>This is a small surprise from my side 💻</p>
+<p>I completed this project the whole night just for you</p>
+<p>Now that I am a Computer Science engineer  I thought I should wish you in an engineer’s style</p>
+<p>This process was very time-consuming  but it’s okay it was worth it</p>
+
+<p>shrashtu Now I want to say something I have never discussed with you before 🤍</p>
+<p>Whenever I talk to you, I feel very happy </p>
+<p>Whenever I see you, I automatically smile</p>
+<p>You are very pretty and innocent</p>
+<p>I see my future with you </p>
+<p>Shrashtu, I just want to say to you please don’t ever break my trust and stay with me forever.</p>
+<p>I wish that you make my life happy and full of joy</p>
+
+</div>
+</div>
+
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function checkPassword(){
+var password=document.getElementById("pass").value;
+if(password==="shrashtu"){
+document.getElementById("passwordScreen").style.display="none";
+document.getElementById("bgMusic").play();
+}else{
+document.getElementById("error").innerText="Wrong Password ❤️";
+}
+}
+
+setInterval(function(){
+let heart=document.createElement("div");
+heart.innerHTML="❤️";
+heart.className="heart";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(Math.random()*20+15)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>{heart.remove();},7000);
+},600);
+</script>
+
+</body>
+</html>
+
